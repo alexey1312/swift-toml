@@ -19,28 +19,24 @@ let package = Package(
         )
     ],
     targets: [
-        .target(
-            name: "CTomlPlusPlus",
-            path: "Sources/CTomlPlusPlus",
-            publicHeadersPath: "include",
-            cxxSettings: [
-                .headerSearchPath(".")
-            ]
+        // Pre-compiled C library using SE-0482 artifact bundle
+        .binaryTarget(
+            name: "CToml",
+            path: "toml.artifactbundle"
         ),
+
+        // Swift wrapper - NO C++ interop required for consumers!
         .target(
             name: "TOML",
-            dependencies: ["CTomlPlusPlus"],
-            swiftSettings: [
-                .interoperabilityMode(.Cxx)
+            dependencies: ["CToml"],
+            linkerSettings: [
+                .linkedLibrary("c++"),
             ]
         ),
+
         .testTarget(
             name: "TOMLTests",
-            dependencies: ["TOML"],
-            swiftSettings: [
-                .interoperabilityMode(.Cxx)
-            ]
+            dependencies: ["TOML"]
         ),
-    ],
-    cxxLanguageStandard: .cxx17
+    ]
 )

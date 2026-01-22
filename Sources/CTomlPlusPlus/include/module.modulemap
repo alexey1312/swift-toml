@@ -1,0 +1,4 @@
+module CToml {
+    header "ctoml.h"
+    export *
+}

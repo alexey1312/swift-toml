@@ -1,0 +1,58 @@
+{
+    "schemaVersion": "1.0",
+    "artifacts": {
+        "CToml": {
+            "type": "staticLibrary",
+            "version": "1.0.0",
+            "variants": [
+                {
+                    "path": "macos-universal/libtoml.a",
+                    "supportedTriples": [
+                        "arm64-apple-macosx",
+                        "x86_64-apple-macosx"
+                    ],
+                    "staticLibraryMetadata": {
+                        "headerPaths": ["include"],
+                        "moduleMapPath": "include/module.modulemap",
+                        "linkedLibraries": ["c++"]
+                    }
+                },
+                {
+                    "path": "ios-arm64/libtoml.a",
+                    "supportedTriples": [
+                        "arm64-apple-ios"
+                    ],
+                    "staticLibraryMetadata": {
+                        "headerPaths": ["include"],
+                        "moduleMapPath": "include/module.modulemap",
+                        "linkedLibraries": ["c++"]
+                    }
+                },
+                {
+                    "path": "ios-simulator/libtoml.a",
+                    "supportedTriples": [
+                        "arm64-apple-ios-simulator",
+                        "x86_64-apple-ios-simulator"
+                    ],
+                    "staticLibraryMetadata": {
+                        "headerPaths": ["include"],
+                        "moduleMapPath": "include/module.modulemap",
+                        "linkedLibraries": ["c++"]
+                    }
+                },
+                {
+                    "path": "maccatalyst-universal/libtoml.a",
+                    "supportedTriples": [
+                        "arm64-apple-ios-macabi",
+                        "x86_64-apple-ios-macabi"
+                    ],
+                    "staticLibraryMetadata": {
+                        "headerPaths": ["include"],
+                        "moduleMapPath": "include/module.modulemap",
+                        "linkedLibraries": ["c++"]
+                    }
+                }
+            ]
+        }
+    }
+}
